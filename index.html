@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Next Class</title>
+<meta name="theme-color" content="#10192E" />
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="icons/icon192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <span class="eyebrow">NEXT CLASS</span>
+      <button id="addBtn" class="icon-btn" aria-label="Add class">+</button>
+    </header>
+
+    <div id="nowCard" class="now-card hidden">
+      <div class="now-course" id="nowCourse">—</div>
+      <div class="now-meta" id="nowMeta">—</div>
+      <div class="countdown" id="countdown">--:--</div>
+      <div class="status-tag" id="statusTag">SCHEDULED</div>
+    </div>
+
+    <div id="emptyState" class="empty-state">
+      <p>No classes yet.</p>
+      <p class="empty-sub">Tap + to add your schedule.</p>
+    </div>
+
+    <section class="list-section">
+      <div class="list-header">
+        <span>TODAY</span>
+        <span id="conflictBadge" class="conflict-badge hidden">⚠ conflict</span>
+      </div>
+      <ul id="classList" class="class-list"></ul>
+    </section>
+
+    <footer class="app-footer">
+      <a id="coffeeLink" href="#" target="_blank" class="coffee-link">☕ Support this</a>
+    </footer>
+  </div>
+
+  <div id="sheetOverlay" class="sheet-overlay hidden">
+    <form id="addForm" class="sheet">
+      <div class="sheet-handle"></div>
+      <h2>Add a class</h2>
+      <input type="text" id="courseName" placeholder="Course (e.g. SM 210)" required />
+      <input type="text" id="location" placeholder="Building / room" />
+      <div class="row">
+        <input type="time" id="startTime" required />
+        <input type="time" id="endTime" required />
+      </div>
+      <div class="days-row" id="daysRow">
+        <label><input type="checkbox" value="Mon"><span>M</span></label>
+        <label><input type="checkbox" value="Tue"><span>T</span></label>
+        <label><input type="checkbox" value="Wed"><span>W</span></label>
+        <label><input type="checkbox" value="Thu"><span>Th</span></label>
+        <label><input type="checkbox" value="Fri"><span>F</span></label>
+      </div>
+      <input type="number" id="leadTime" placeholder="Leave-by buffer (min)" min="0" value="10" />
+      <div class="form-actions">
+        <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+        <button type="submit" class="btn-primary">Save class</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
